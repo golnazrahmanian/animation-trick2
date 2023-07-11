@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cat{
+    position: relative;
+    height: 270px;
+    width: 321px;
+}
+.ear{
+    position: absolute;
+    top: -30%;
+    height: 60%;
+    width: 25%;
+    background-color: #fff;
+
+}
+.earleft{
+    left: -7%;
+    border-radius: 70% 30% 0% 0% / 100% 100% 0% 0% ;
+    transform: rotate(-20deg);
+
+}
+.earright{
+    right: -7%;
+    border-radius: 30% 70% 0% 0% / 100% 100% 0% 0% ;
+    transform: rotate(20deg);
+
+}
+.face{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    border-radius: 50%;
+}
+.eye{
+    position: absolute;
+    top: 35%;
+    height: 30%;
+    width: 30%;
+    background-color: #fff;
+    border-radius: 50% 50% 50% 50% ;
+    //pelk
+    &::after{
+        content: '';
+        position: absolute;
+        top:0;
+        left: 0;
+        height: 0;
+        width: 100%;
+        border-radius: 0 0 50% 50%;
+        background-color: #000;
+        animation: blink 3s infinite ease-in;
+    }
+    @keyframes blink{
+        0% { height: 0; }
+        90% { height: 0; }
+        92.5% { height: 100%; }
+        95% { height: 0; }
+        97.5% { height: 100%; }
+        100% { height: 0; }
+    }
+    &::before{
+        content: '';
+        position:absolute;
+        top: 60%;
+        height: 10%;
+        width: 15%;
+        background-color: #fff;
+        border-radius: 50%;
+    }
+}
+.eyeleft{
+    left: 0;
+    &::before{
+        right: -5%;
+    }
+} .eyeright{
+    right: 0;
+    &::before{
+        left: -5%;
+    }
+}
+// eyeinside
+.eyeinside{
+    position:absolute;
+    top: 25%;
+    height: 50%;
+    width: 20%;
+    background-color: #000;
+    border-radius: 50%;
+    animation: look-around 3s infinite;
+    @keyframes look-around {
+        0% { transform: translate(0) }
+    5% { transform: translate(50%, -25%) }
+    10% { transform: translate(50%, -25%) }
+    15% { transform: translate(-100%, -25%) }
+    20% { transform: translate(-100%, -25%) }
+    25% { transform: translate(0, 0) }
+    100% { transform: translate(0, 0) }    
+    }
+    .eyeleft & {
+        right: 30%;
+    }
+    .eyeright & {
+        left: 30%;
+    }
+}
+// nose
+.nose{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    height: 6%;
+    width: 10%;
+    background-color: #fff;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+}
+//mouth
+.mouth{
+    width: 10%;
+    height: 10%;
+    display: flex;
+    background-color: #fff;
+    border-radius: 50% 50% 50% 50%;
+    &::after{
+        content: '';
+        position: absolute;
+        top:0;
+        left: 0;
+        height: 90%;
+        width: 100%;
+        border-radius: 0 0 50% 50%;
+        background-color: #000;
+    }
+}
+.mouthleft{
+position: absolute;
+ top:70%;
+ left: 40%;
+}
+.mouthright{
+    position: absolute;
+  top: 70%;
+  right: 40%;
+
+}
+html{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+}
+
